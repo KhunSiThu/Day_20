@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Laptops</title>
+    <link rel="stylesheet" href="/CSS/home.css">
+    <link rel="stylesheet" href="/CSS/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+    <header class="bg_change">   
+        <div class="hr1">
+            <h1>Computer</h1>
+            <span class="col_black">Parts & Accessories</span>
+        </div>
+        <div class="hr2 b3">
+            <input class="search_tag" type="search" name="search products" placeholder="Search for products, categories, ...">
+            <button><i class="fa-solid fa-magnifying-glass"></i></button>           
+        </div>
+        <div class="search_result bg_change">
+                
+        </div>
+        <div class="hr3">
+            
+            <button class="b3 cart_show_btn bg_change"><i class="fa-solid fa-cart-shopping cart_show_icon"></i><span class="quantities"></span></button>
+            <button class="b3 fav_show_btn h_love_btn bg_change"><i class="fa-solid fa-heart fav_show_icon"></i><span class="fav"></span></button>
+            <!-- <button class="b3"><i class="fa-solid fa-user"></i></i></button> -->
+            <button class="menu_btn b3 bg_change"><i class="menu_bar fa-solid fa-bars"></i></button>          
+        </div>
+        <div class="menu_con dis_none bg_change">
+            <a href="home.html" class="menu_li">
+                <i class="fa-solid fa-house"></i><p>HOME PAGE</p>
+            </a>
+            <a class="menu_li">
+                <i class="fa-solid fa-people-carry-box"></i><p>SERVICES</p>
+            </a>
+            <a class="menu_li">
+                <i class="fa-solid fa-file-signature"></i><p>CONTACT US</p>
+            </a>
+            <a class="menu_li">
+                <i class="fa-solid fa-circle-question"></i><p>FAQ</p>
+            </a>
+            <a class="menu_li">
+                <i class="fa-solid fa-comments"></i><p>REVIEW</p>
+            </a>
+            <div class="dark_con">
+                <i class="fa-solid fa-sun dark_icon"></i><p><span class="dark_text">Light</span> <button class="dark_btn"><span class="circle_btn"></span></button></p>
+            </div>
+        </div>
+        <!-- Cart Container -->
+        <div class="cart_container dis_none">
+            <h2>Your Cart - <span class="item_num">No</span> items</h2>
+            <div class="cart_pro_con">
+               
+                <h4>
+                    <i class="fa-solid fa-cart-arrow-down fa-bounce"></i>
+                </h4>
+                
+            </div>
+            <div class="cart_test">
+                <div><p>Total Price  </p>-<span class="total_price"></span></div>
+                <div>
+                    <img class="card_icon" src="/image/Credit-Card-Icons.png" alt="">
+                    <button class="check_btn b3">Checkout</button>
+                </div>
+            </div> 
+        </div>
+
+        <!-- Fav Container -->
+        <div class="fav_container dis_none">
+            <h2>Your Favourites <span class="item_num">No</span> items</h2>
+            <div class="fav_pro_con">
+               
+                <h4>
+                    <i class="fa-solid fa-cart-arrow-down fa-bounce"></i>
+                </h4>
+                
+            </div>
+            
+        </div>
+    </header>
+    <main class="main">
+        <section class="home_container">
+
+            <div class="ads_img_con">
+                <div class="ads_left">
+                    <img  src="/image/ads0.jpg" alt="">
+                </div>
+                <div class="ads_right">
+                    <img class="ads_img" src="/image/ads1.jpg" alt="">
+                    <div class="ads_imgs">
+                        <img class="ads_sm_img" src="/image/ads1.jpg" alt="">
+                        <img class="ads_sm_img" src="/image/ads2.jpg" alt="">
+                        <img class="ads_sm_img" src="/image/ads3.jpg" alt="">
+                        <img class="ads_sm_img" src="/image/ads4.jpg" alt="">
+                        <img class="ads_sm_img" src="/image/ads5.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+
+            <div class="product_types">
+                <a href="pc.html" class="b3 bg_change">
+                    <img src="/image/computer-case.png" alt="">
+                    <span>Ready 2 run Gaming PCs</span>
+                </a>
+                <a id="pc" class="b3 bg_change">
+                    <img src="/image/laptop.png" alt="">
+                    <span>Laptops</span>
+                </a>
+                <a class="b3 bg_change" href="motherboards.html">
+                    <img src="/image/motherboard.png" alt="">
+                    <span>Motherboard</span>
+                </a>
+                <a class="b3 bg_change" href="monitors.html">
+                    <img src="/image/monitor.png" alt="">
+                    <span>Monitor</span>
+                </a>
+                <a class="b3 bg_change" href="other.html">
+                    <img src="/image/usb-cable.png" alt="">
+                    <span>Other</span>
+                </a>
+            </div>
+
+            <div class="pro_container">
+                <div class="pro_left">
+                    <div class="sort b3 bg_change">
+                        <div><h3>All</h3><input class="all_btn" type="checkbox" ></div>
+                    </div>
+                    <div class="sort b3 bg_change">
+                        <div><h3>Brand</h3><i class="brand_icon fa-solid fa-chevron-down"></i></div>
+                        <article class="brands">
+                            <div><span>Hewlett Packard</span><input class="brand_btn" type="checkbox" value="HP"></div>
+                            <div><span> MSI </span><input class="brand_btn" type="checkbox" value="MSI"></div>
+                            <div><span> Lenovo </span><input class="brand_btn" type="checkbox" value="Lenovo"></div>
+                            <div><span>  Acer  </span><input class="brand_btn" type="checkbox" value="Acer"></div>
+                            <div><span>Asus</span><input class="brand_btn" type="checkbox" value="Asus"></div>
+                            <div><span>Apple </span><input class="brand_btn" type="checkbox" value="Apple"></div>
+                            <div><span>Dell</span><input class="brand_btn" type="checkbox" value="Dell"></div>
+                        </article>
+                    </div>
+                    <div class="sort b3 bg_change">
+                        <div><h3>Price</h3></div>
+                        <article class="price_test">
+                            <div class="price">
+                                <div><button class="pu_btn">+</button><input class="bg_change b_price" type="text" value="500"><button class="mi_btn">-</button></div>
+                                <span>to</span>
+                                <div><button class="pu_btn">+</button><input class="bg_change a_price" type="text" value="600"><button class="mi_btn">-</button></div>
+                            </div>
+                            <button class="go_btn">Enter</button>
+                        </article>
+                    </div>
+                </div>
+                <div class="right">
+                    <div class="gam_header">
+                        <h2>Laptops</h2>
+                        <div class="sort_con">
+                            <button id="li_1"><img src="/image/list.png" alt=""></button>
+                            <button id="li_2"><img src="/image/menu.png" alt=""></button>
+                            <button id="li_3"><img src="/image/pieces.png" alt=""></button>
+                        </div>
+                    </div>
+                    <div class="laptops_product col_3">
+                        
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="check_form_container">
+        <!-- Checkout form will be inserted here -->
+    </div>
+
+    <script type="module" src="/JS/laptops.js"></script>
+    <script type="module" src="/JS/main.js"></script>
+   
+    
+</body>
+</html>

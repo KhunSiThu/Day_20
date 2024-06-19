@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computer</title>
+    <link rel="stylesheet" href="/CSS/home.css">
+    <link rel="stylesheet" href="/CSS/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body class="home"> 
+    <header class="bg_change">   
+        <div class="hr1">
+            <h1>Computer</h1>
+            <span class="col_black">Parts & Accessories</span>
+        </div>
+        <div class="hr2 b3">
+            <input class="search_tag" type="search" name="search products" placeholder="Search for products, categories, ...">
+            <button><i class="fa-solid fa-magnifying-glass"></i></button>           
+        </div>
+        <div class="search_result bg_change">
+            <!-- Search results will be displayed here -->
+        </div>
+        <div class="hr3">
+            <button class="b3 cart_show_btn bg_change">
+                <i class="fa-solid fa-cart-shopping cart_show_icon"></i><span class="quantities"></span>
+            </button>
+            <button class="b3 fav_show_btn h_love_btn bg_change">
+                <i class="fa-solid fa-heart fav_show_icon"></i><span class="fav"></span>
+            </button>
+            <button class="menu_btn b3 bg_change"><i class="menu_bar fa-solid fa-bars"></i></button>          
+        </div>
+        <div class="menu_con dis_none bg_change">
+            <a href="home.html" class="menu_li">
+                <i class="fa-solid fa-house"></i><p>HOME PAGE</p>
+            </a>
+            <a class="menu_li">
+                <i class="fa-solid fa-people-carry-box"></i><p>SERVICES</p>
+            </a>
+            <a class="menu_li">
+                <i class="fa-solid fa-file-signature"></i><p>CONTACT US</p>
+            </a>
+            <a class="menu_li">
+                <i class="fa-solid fa-circle-question"></i><p>FAQ</p>
+            </a>
+            <a class="menu_li">
+                <i class="fa-solid fa-comments"></i><p>REVIEW</p>
+            </a>
+            <div class="dark_con">
+                <i class="fa-solid fa-sun dark_icon"></i><p><span class="dark_text">Light</span> 
+                <button class="dark_btn"><span class="circle_btn"></span></button></p>
+            </div>
+        </div>
+        
+        <!-- Cart Container -->
+        <div class="cart_container dis_none">
+            <h2>Your Cart - <span class="item_num">No</span> items</h2>
+            <div class="cart_pro_con">
+                <h4>
+                    <i class="fa-solid fa-cart-arrow-down fa-bounce"></i>
+                </h4>
+            </div>
+            <div class="cart_test">
+                <div>
+                    <p>Total Price</p> - <span class="total_price"></span>
+                </div>
+                <hr>
+                <div>
+                    <img class="card_icon" src="/image/Credit-Card-Icons.png" alt="">
+                    <button class="check_btn b3">Checkout</button>
+                </div>
+            </div> 
+        </div>
+
+        <!-- Fav Container -->
+        <div class="fav_container dis_none">
+            <h2>Your Favourites <span class="item_num">No</span> items</h2>
+            <div class="fav_pro_con">
+                <h4>
+                    <i class="fa-solid fa-cart-arrow-down fa-bounce"></i>
+                </h4>
+            </div>
+        </div>
+    </header>
+    
+    <main class="main">
+        <section class="home_container">
+            <div class="ads_img_con">
+                <div class="ads_left">
+                    <img  src="/image/ads0.jpg" alt="">
+                </div>
+                <div class="ads_right">
+                    <img class="ads_img" src="/image/ads1.jpg" alt="">
+                    <div class="ads_imgs">
+                        <img class="ads_sm_img" src="/image/ads1.jpg" alt="">
+                        <img class="ads_sm_img" src="/image/ads2.jpg" alt="">
+                        <img class="ads_sm_img" src="/image/ads3.jpg" alt="">
+                        <img class="ads_sm_img" src="/image/ads4.jpg" alt="">
+                        <img class="ads_sm_img" src="/image/ads5.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+
+            <div class="product_types">
+                <a class="b3 bg_change col_black" href="pc.html">
+                    <img src="/image/computer-case.png" alt="">
+                    <span>Ready 2 run Gaming PCs</span>
+                </a>
+                <a class="b3 bg_change col_black" href="laptops.html">
+                    <img src="/image/laptop.png" alt="">
+                    <span>Laptops</span>
+                </a>
+                <a class="b3 bg_change" href="monitors.html">
+                    <img src="/image/motherboard.png" alt="">
+                    <span>Motherboard</span>
+                </a>
+                <a class="b3 bg_change" href="monitors.html">
+                    <img src="/image/monitor.png" alt="">
+                    <span>Monitor</span>
+                </a>
+                <a class="b3 bg_change" href="other.html">
+                    <img src="/image/usb-cable.png" alt="">
+                    <span>Other</span>
+                </a>
+            </div>
+
+            <div class="hot_product_container">
+                <h2 class="color_change">WHAT'S HOT RIGHT NOW</h2>
+                <div class="see_con">
+                    <button id="see" class="hot_see_btn all color_change">See All</button>
+                </div>
+                <div class="hot_scroll">
+                    <div class="hot_product hot_flex less">
+                        <!-- Hot products will be displayed here -->
+                    </div>
+                </div>
+                <button class="next_btn"><i class="fa-solid fa-chevron-right"></i></button>
+                <button class="back_btn dis_none"><i class="fa-solid fa-chevron-left"></i></button>
+            </div>
+
+            <div class="feat_product_container">
+                <h2 class="color_change">FEATURED PRODUCTS</h2>
+                <div class="see_con">
+                    <button id="see" class="feat_see_btn a color_change">See All</button>
+                </div>
+                <div class="feat_scroll">
+                    <div class="feat_product feat_flex less">
+                        <!-- Featured products will be displayed here -->
+                    </div>
+                </div>
+                <button class="feat_next"><i class="fa-solid fa-chevron-right"></i></button>
+                <button class="feat_back dis_none"><i class="fa-solid fa-chevron-left"></i></button>
+            </div>
+        </section>
+    </main>
+
+    <div class="check_form_container">
+        <!-- Checkout form will be inserted here -->
+    </div>
+
+    <script type="module" src="/JS/main.js"></script>
+</body>
+</html>
