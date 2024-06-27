@@ -34,7 +34,7 @@
 
             .hr3 
             {
-                width: 45%;
+                width: 50%;
                 position: absolute;
                 top: 13px;
                 right: 10px;
@@ -60,12 +60,12 @@
 
             .quantities 
             {
-                right: 35%;
+                right: 28%;
             }
 
             .fav 
             {
-                right: 18%;
+                right: 15%;
             }
 
             .cart_container,.fav_container
@@ -544,214 +544,128 @@
             }
         }
     }
-}
 
-/* @media (max-width: 600px) {
-    body {
-      
+    /* Login Form */
+
+    #singup_form,#login_form
+    {
+        table 
+        {
+            width: 100%;
+        }
     }
 
-    header 
+    .error_show {
+        top: 20px;
+
+        div 
         {
-            display: block;
+            width: 95%;
+        }
+    }
 
-            .hr1 
+    .have_acc_alert 
+    {
+        div 
+        {
+            width: 60%;
+            padding: 10px;
+        }
+
+        i{
+            font-size: 50px;
+        }
+
+        p 
+        {
+            font-size: 15px;
+        }
+
+        em {
+            font-size: 13px;
+        }
+
+        button 
+        {
+            line-height: 25px;
+            width: 50px;
+            font-size: 15px;
+        }
+
+        .have_remove {
+            width: 20px;
+            line-height: 20px;
+            right: 5px;
+            i {
+                font-size: 16px;
+            }
+        }
+    }
+
+    .up_profile
+    {
+        width: 100%;
+
+        div 
+        {
+            width: 300px;
+
+            article 
             {
-                width: 40%;
+                width: 200px;
+                height: 200px;
+            }
 
-                h1 {
-                    font-size: 35px;
-                    line-height: 35px;
-                }
+            label 
+            {
+                width: 200px;
+                height: 200px;
 
-                span {
-                    width: 100%;
-                    font-size: 13px;
-                    padding: 0;
+                p {
+                    margin-top: 65%;
+                    font-size: 15px;
                 }
             }
 
-            .hr3 
-            {
-                width: 45%;
-                position: absolute;
-                top: 13px;
-                right: 10px;
+            
+        }
+    }
 
-                button 
-                {
-                    width: 15px 15px;
-                }
-            }
+    /* product detail */
 
-            .hr2 
+    .back_link_btn 
+    {
+        top: 130px;
+    }
+    .s1 
+    {
+        flex-direction: column;
+
+        .d_left
+        {
+            width: 100%;
+
+        }
+
+        .d_right 
+        {
+            width: 100%;
+            padding: 10px;
+
+            p,span
             {
-                width: 100%;
+                font-size: 18px;
                 margin: 10px 0;
             }
 
-            .menu_con 
-            {
-                width: 60%;
-                top: 68px;
-                right: 10px;
+            button {
+                margin: 10px 0 30px 0;
             }
 
-            .quantities 
-            {
-                right: 36%;
-            }
-
-            .cart_container 
-            {
-                width: 80%;
-                top: 68px;
-                right: 10px;
-
-                h2 
-                {
-                    font-size: 18px;
-                    line-height: 30px;
-                }
-
-                .cart_info article
-                {
-                    padding-top: 5px;
-                }
-
-                .pro_quantity button 
-                {
-                    width: 15px 15px;
-                    line-height: 20px;
-                    border: none;
-                    border-radius: 3px;
-                }
-
-                em 
-                {
-                    font-size: 15px;
-                }
-
-            }
+           
         }
 
-    
 
-        section 
-        {
-            margin: 20px auto;
-        }
-        .ads_img_con 
-        {
-            img 
-            {
-                height: 180px;
-            }
-        }
+    }
+}
 
-        .product_types 
-        {
-           display: grid;
-           grid-template-columns: auto auto;
-           gap: 10px;
-        }
-
-        .product_types a 
-        {
-            width: 100%;
-
-            span 
-            {
-                font-size: 15px;
-            }
-        }
-
-        .hot_product_container,.feat_product_container
-        {
-            border: none;
-            width: 100%;
-            padding: 20px 0 0 0;
-            
-            h2 
-            {
-                background-color: #38B5FA;
-                padding: 10px;
-                font-size: 27px;
-                font-weight: bold;
-            }
-
-            .see_con 
-            {
-                position: absolute;
-                z-index: 40;
-                bottom: -35px;
-            }
-            .product_box 
-            {
-               width: auto;
-
-               .save {
-                line-height: 30px;
-                font-size: 12px;
-               }
-
-               .save em 
-               {
-                font-size: 14px;
-               }
-
-               .pro_info 
-               {
-                font-size: 10px;
-               }
-
-               .buy
-               {
-                font-size: 10px;
-                line-height: 30px;
-
-                em {
-                    font-size: 12px;
-                }
-
-                .buy_btn
-                {
-                    font-size: 8px;
-                }
-
-                button 
-                {
-                    padding: 3px 0;
-                    font-size: 8px;
-                    border-radius: 2px;
-                }
-               }
-
-            }
-
-            .hot_scroll,.feat_scroll
-            {
-                overflow: hidden;
-                height: 300px;
-            }
-
-            .hot_flex,.feat_flex,.hot_grid,.feat_grid
-            {
-                width: 100%;
-                transition: all 1s;
-                display: grid;
-                justify-content: space-between;
-                gap: 0;
-                grid-template-columns: 49% 49%;
-                grid-auto-flow: row;
-                border: none;
-            }
-
-            .next_btn,.back_btn,.feat_next,.feat_back 
-            {
-                display: none;
-            }
-    
-        }
-        
-} */

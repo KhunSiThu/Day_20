@@ -1,0 +1,133 @@
+.back_link_btn
+{
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    border-radius: 50%;
+    position: fixed;
+    left: 15px;
+    top: 90px;
+    border: 1px solid rgba(92, 92, 92, 0.26);
+    opacity: .5;
+    transition: .5s;
+}
+
+.back_link_btn:hover 
+{
+    color: white;
+    background-color: #38B5FA;
+}
+
+section
+{
+    height: auto;
+}
+
+
+.s1 
+{
+    display: flex;
+    justify-content: space-around;
+    background-color: white;
+
+    
+
+    .d_left {
+        width: 43%;
+        padding: 20px 40px;
+
+        img {
+            width: 100%;
+        }
+
+        div 
+        {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            img 
+            {
+                width: 25%;
+                padding: 10px;
+                border: 1px solid rgb(0, 0, 0);
+
+            }
+        }
+    }
+
+    .d_right 
+    {
+        width: 40%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+
+        p {
+            font-size: 30px;
+            text-align: justify;
+            letter-spacing: 1px;
+        }
+
+        span {
+            font-size: 25px;
+            color: rgb(121, 121, 121);
+        }
+
+        em {
+            font-size: 30px;
+            font-weight: bold;
+            color: black;
+        }
+
+        .buy 
+        {
+            width: 180px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            button {
+                padding: 10px;
+                font-size: 16px;
+                font-weight: 700;
+            }
+
+            #buy_now
+            {
+                width: 100px;
+            }
+        }
+
+        .comment_con 
+        {
+            width: 100%;
+            height: 60px;
+            position: relative;
+
+            label 
+            {
+                position: absolute;
+                top: 19px;
+                left: 20px;
+                padding: 0 10px;
+                background-color: white;
+                transition: .5s;
+                color: rgb(189, 189, 189);
+            }
+
+            textarea
+            {
+                width: 100%;
+                height: 100%;
+                background: none;
+                padding: 20px;
+                outline: none;
+            }
+
+        }
+    }
+
+    
+}

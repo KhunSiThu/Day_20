@@ -13,6 +13,14 @@ import {
 
 import { products } from "./products.js";
 
+import { user_name,profile_img } from "./selector.js";
+
+const user_img_Url = localStorage.getItem("user-img");
+if(user_img_Url)
+    {
+        profile_img.forEach(e => e.src = user_img_Url)
+    }
+
 if(localStorage.getItem("circle") === "circle_move")
     {
         circle_btn.classList.add("circle_move");
@@ -21,6 +29,13 @@ if(localStorage.getItem("circle") === "circle_move")
         dark_icon.classList.add("fa-moon");
         dark_text.innerHTML = "Dark";
     }
+
+
+
+
+
+    
+
 
 // Header event listeners
 search_tag.addEventListener("keyup", () => search_result_show());
@@ -49,10 +64,22 @@ const ads_show = () => {
     },2000)
 }
 
-ads_show();
+if (body.classList.contains("ads"))
+    {
+        ads_show();
+    }
+
 // Home page specific functions
 
 if (body.classList.contains("home")) {
+    const user_info = JSON.parse(localStorage.getItem("user"));
+    user_name.innerHTML = user_info.u_name;
+    
+    if(user_img_Url)
+        {
+            document.querySelector(".up_text").style.display = "none"
+            // profile_img.forEach(e => e.src = user_img_Url)
+        }
 
     hot_show();
     feat_show();
@@ -103,66 +130,70 @@ const fav_show_btn = document.querySelector(".fav_show_btn");
 
 // localStorage.setItem("cart_product",JSON.stringify([]));
 
+
 // State variables
-let cart_products;
-if(JSON.parse(localStorage.getItem("cart_product")))
-    {
-        cart_products = JSON.parse(localStorage.getItem("cart_product"));
-
-        let sum_price = 0;
-        cart_pro_con.innerHTML = "";
-        cart_products.forEach((e) => {
-            sum_price += e.price * e.quantity;
-            total_price.textContent = "$ " + parseInt(sum_price);
-            cart_pro_con.innerHTML += `
-            <div class="cart_pro">
-                <div class="cart_img"><img src="${e.img}.png" alt=""></div>
-                <div class="cart_info">
-                    <p class="cart_pro_info">${e.info}</p>
-                    <article>
-                        <div class="pro_quantity bg_change">
-                            <button class="q_pu">+</button>
-                            <input class="bg_change q_value" value="${e.quantity}" type="text">
-                            <button class="q_min">-</button>
-                        </div>
-                        <em>$ ${parseInt(e.price * e.quantity)}</em>
-                    </article> 
-                    <button class="remove_btn"><i class="fa-solid fa-xmark fa-fade remove"></i></button>              
-                </div>
-            </div>
-            `;
-        });
-    
-        quantities.style.display = cart_products.length > 0 ? "flex" : "none";
-        quantities.textContent = cart_products.length;
-        item_num[0].textContent = cart_products.length > 0 ? cart_products.length : "No";
-        cart_test.style.display = cart_products.length > 0 ? "block" : "none";
-    
-        if (cart_products.length === 0) {
-            cart_pro_con.innerHTML = `
-                <h4>
-                    <i class="fa-solid fa-cart-arrow-down fa-bounce"></i>
-                </h4>
-            `;
-        }
-    
-        if (cart_show_icon.classList.contains("fa-fade")) {
-            quantities.style.display = "none";
-        } else {
-            quantities.style.display = "flex";
-        }
-        
-    } else {
-        cart_products = [];
-    }
-
-    console.log(cart_products)
 
 let fav_products = [];
 let sum_price = 0;
 let total = 0;
 let pro_info = [];
 
+
+const cart_products_show = (cart_products) => {
+    //let sum_price = 0;
+    cart_pro_con.innerHTML = "";
+    cart_products.forEach((e) => {
+        sum_price += e.price * e.quantity;
+        total_price.textContent = "$ " + parseInt(sum_price);
+        cart_pro_con.innerHTML += `
+        <div class="cart_pro">
+            <div class="cart_img"><img src="${e.img}.png" alt=""></div>
+            <div class="cart_info">
+                <p class="cart_pro_info">${e.info}</p>
+                <article>
+                    <div class="pro_quantity bg_change">
+                        <button class="q_pu">+</button>
+                        <input class="bg_change q_value" value="${e.quantity}" type="text">
+                        <button class="q_min">-</button>
+                    </div>
+                    <em>$ ${parseInt(e.price * e.quantity)}</em>
+                </article> 
+                <button class="remove_btn"><i class="fa-solid fa-xmark fa-fade remove"></i></button>              
+            </div>
+        </div>
+        `;
+    });
+
+    quantities.style.display = cart_products.length > 0 ? "flex" : "none";
+    quantities.textContent = cart_products.length;
+    item_num[0].textContent = cart_products.length > 0 ? cart_products.length : "No";
+    cart_test.style.display = cart_products.length > 0 ? "block" : "none";
+
+    if (cart_products.length === 0) {
+        cart_pro_con.innerHTML = `
+            <h4>
+                <i class="fa-solid fa-cart-arrow-down fa-bounce"></i>
+            </h4>
+        `;
+    }
+
+    if (cart_show_icon.classList.contains("fa-fade")) {
+        quantities.style.display = "none";
+    } else {
+        quantities.style.display = "flex";
+    }
+}
+
+let cart_products;
+if(JSON.parse(localStorage.getItem("cart_product")))
+    {   
+        cart_products = JSON.parse(localStorage.getItem("cart_product"));  
+        cart_products_show(cart_products);
+        
+        
+    } else {
+        cart_products = [];
+    }
 // Cart show/hide functionality
 cart_show_btn.addEventListener("click", () => {
 
@@ -254,8 +285,8 @@ fav_show_btn.addEventListener("click", () => {
 // Cart show function to update the cart
 const cart_show = (pro_info, w_do) => {
     const cart_filter = products.filter(e => e.info === pro_info)[0];
-    console.log(cart_filter)
-  
+
+ //  cart_products = JSON.parse(localStorage.getItem("cart_product"));
     console.log(cart_products)
     if (cart_products.every(e => e !== cart_filter)) {
         cart_products.push(cart_filter);
@@ -278,201 +309,13 @@ const cart_show = (pro_info, w_do) => {
         }
     }
 
-    localStorage.setItem("cart_product",JSON.stringify(cart_products));
+ //   localStorage.setItem("cart_product",JSON.stringify(cart_products));
     
-    sum_price = 0;
-    cart_pro_con.innerHTML = "";
-    cart_products.forEach((e) => {
-        sum_price += e.price * e.quantity;
-        total_price.textContent = "$ " + parseInt(sum_price);
-        cart_pro_con.innerHTML += `
-        <div class="cart_pro">
-            <div class="cart_img"><img src="${e.img}.png" alt=""></div>
-            <div class="cart_info">
-                <p class="cart_pro_info">${e.info}</p>
-                <article>
-                    <div class="pro_quantity bg_change">
-                        <button class="q_pu">+</button>
-                        <input class="bg_change q_value" value="${e.quantity}" type="text">
-                        <button class="q_min">-</button>
-                    </div>
-                    <em>$ ${parseInt(e.price * e.quantity)}</em>
-                </article> 
-                <button class="remove_btn"><i class="fa-solid fa-xmark fa-fade remove"></i></button>              
-            </div>
-        </div>
-        `;
-    });
-
-    quantities.style.display = cart_products.length > 0 ? "flex" : "none";
-    quantities.textContent = cart_products.length;
-    item_num[0].textContent = cart_products.length > 0 ? cart_products.length : "No";
-    cart_test.style.display = cart_products.length > 0 ? "block" : "none";
-
-    if (cart_products.length === 0) {
-        cart_pro_con.innerHTML = `
-            <h4>
-                <i class="fa-solid fa-cart-arrow-down fa-bounce"></i>
-            </h4>
-        `;
-    }
-
-    if (cart_show_icon.classList.contains("fa-fade")) {
-        quantities.style.display = "none";
-    } else {
-        quantities.style.display = "flex";
-    }
-
-    
-
+    cart_products_show(cart_products);
 };
 
-// cart_products = localStorage.getItem("cart_product");
-
-
-
-// Favorite show function to update the favorite list
-const fav_show = (fav_pro_con, fav_products) => {
-    fav_pro_con.innerHTML = "";
-    fav_products.forEach((e) => {
-        fav_pro_con.innerHTML += `
-        <div class="fav_pro" no="${e.id}">
-            <div class="fav_img"><img src="${e.img}.png" alt=""></div>
-            <div class="fav_info">
-                <p class="fav_pro_info">${e.info}</p>
-                <article>
-                    <span>Price: <em>$${e.price}</em></span>
-                    <button id="buy_now" class="b3 buy_btn">Buy Now</button>
-                    <button class="cart_btn b3"><i class="fa-solid fa-cart-shopping cart_chose"></i></button>
-                </article> 
-                <button class="remove_btn"><i class="fa-solid fa-xmark fa-fade fav_remove"></i></button>              
-            </div>
-        </div>
-        `;
-    });
-
-    fav.style.display = fav_products.length > 0 ? "flex" : "none";
-    fav.textContent = fav_products.length;
-    item_num[1].textContent = fav_products.length > 0 ? fav_products.length : "No";
-
-    if (fav_products.length === 0) {
-        fav_pro_con.innerHTML = `
-            <h4>
-                <i class="fa-solid fa-cart-arrow-down fa-bounce"></i>
-            </h4>
-        `;
-    }
-
-    if (fav_show_icon.classList.contains("fa-fade") || fav_products.length === 0) {
-        fav.style.display = "none";
-    } else {
-        fav.style.display = "flex";
-    }
-};
-
-const main = document.getElementsByTagName("main")[0];
-// Add event listeners to all elements with the class 'product_box'
-
-main.addEventListener("click", (e) => {
-    // Get the product information from the closest '.product_box' element
-    
-
-    // If the clicked element has the class 'cart_btn' or 'cart_chose'
-    if (e.target.classList.contains("cart_btn") || e.target.classList.contains("cart_chose")) {
-        const pro_info = e.target.closest(".product_box").querySelector(".pro_info").textContent;
-        const w_do = "cart";
-        cart_show(pro_info, w_do);
-    }
-
-    // If the clicked element has the class 'fa-heart'
-    if (e.target.classList.contains("fa-heart")) {
-        const pro_box = e.target.closest(".product_box");
-        const heart = pro_box.querySelector(".fa-heart");
-        const love_btn = pro_box.querySelector(".love_btn");
-        const save = pro_box.querySelector(".save");
-        const fav = document.querySelector(".fav");
-        const pro_info = e.target.closest(".product_box").querySelector(".pro_info").textContent;
-
-        const fav_filter = products.filter(e => e.info === pro_info)[0];
-
-        // Toggle the heart's 'click' class and its styles
-        if (heart.classList.contains("click")) {
-            heart.classList.remove("click");
-            heart.style.color = "";
-            love_btn.style.opacity = .5;
-            save.style.background = "";
-
-            fav_products.splice(fav_products.indexOf(fav_filter), 1);
-        } else {
-            heart.classList.add("click");
-            heart.style.color = "red";
-            love_btn.style.opacity = 1;
-            save.style.background = "#38B5FA";
-            fav_products.push(fav_filter);
-        }
-
-        // Update the favorite products display
-        fav_show(fav_pro_con, fav_products);
-    }
-
-    const pro_left = document.querySelector(".pro_left");
-
-    pro_left.addEventListener("click", () => {
-        const fav_pro = document.querySelectorAll(".fav_pro");
-        fav_pro.forEach((e) => {
-            const fav_no = e.attributes.no.value;
-            const product_con = document.querySelector(`[num = "${fav_no}"]`);
-                    
-            if(product_con)
-                {
-                    const heart = product_con.querySelector(".fa-heart");
-
-                    heart.classList.add("click");
-                    heart.style.color = "red";
-                    product_con.querySelector(".love_btn").style.opacity = 1;
-                    product_con.querySelector(".save").style.background = "#38B5FA";
-
-                }
-        })
-    })
-
-    if(e.target.classList.contains("home_container") || e.target.classList.contains("brands"))
-        {
-            
-                    
-                
-        }
-});
-
-
-// Add event listeners to the cart container
-cart_container.addEventListener("click", (e) => {
-    const cart_pro = document.querySelectorAll(".cart_pro");
-    const cart_pro_info = document.querySelectorAll(".cart_pro_info");
-
-    // Increase product quantity
-    if (e.target.classList.contains("q_pu")) {
-        const pro_info = e.target.closest(".cart_info").querySelector(".cart_pro_info").textContent;
-        const w_do = "pu";
-        cart_show(pro_info, w_do);
-    }
-
-    // Decrease product quantity
-    if (e.target.classList.contains("q_min")) {
-        const pro_info = e.target.closest(".cart_info").querySelector(".cart_pro_info").textContent;
-        const w_do = "mi";
-        cart_show(pro_info, w_do);
-    }
-
-    // Remove product from cart
-    if (e.target.classList.contains("remove")) {
-        const pro_info = e.target.closest(".cart_info").querySelector(".cart_pro_info").textContent;
-        const w_do = "remove";
-        cart_show(pro_info, w_do);
-    }
-
-    // Display checkout form
-    if (e.target.classList.contains("check_btn")) {
+const check_form_show = (check_form_container,price) =>
+{
         check_form_container.style.display = "flex";
         check_form_container.innerHTML = `
             <form action="">
@@ -528,7 +371,7 @@ cart_container.addEventListener("click", (e) => {
                     <tr>
                         <td>
                             <p>Total Price</p>
-                            <span>$ <em class="check_price">${parseInt(sum_price)}</em></span>
+                            <span>$ <em class="check_price">${parseInt(price)}</em></span>
                         </td>
                         <td><hr></td>
                         <td>
@@ -566,12 +409,184 @@ cart_container.addEventListener("click", (e) => {
                 </table>
             </form>
         `;
-        
-        // Close the checkout form
+
         const check_close = document.querySelector(".check_close");
         check_close.addEventListener("click", () => {
             check_form_container.style.display = "none";
         });
+}
+
+
+// cart_products = localStorage.getItem("cart_product");
+
+
+
+// Favorite show function to update the favorite list
+const fav_show = (fav_pro_con, fav_products) => {
+    fav_pro_con.innerHTML = "";
+    fav_products.forEach((e) => {
+        fav_pro_con.innerHTML += `
+        <div class="fav_pro" no="${e.id}">
+            <div class="fav_img"><img src="${e.img}.png" alt=""></div>
+            <div class="fav_info">
+                <p class="fav_pro_info">${e.info}</p>
+                <article>
+                    <span>Price: <em>$${e.price}</em></span>
+                    <button id="buy_now" class="b3 buy_btn">Buy Now</button>
+                    <button class="cart_btn b3"><i class="fa-solid fa-cart-shopping cart_chose"></i></button>
+                </article> 
+                <button class="remove_btn"><i class="fa-solid fa-xmark fa-fade fav_remove"></i></button>              
+            </div>
+        </div>
+        `;
+    });
+
+    fav.style.display = fav_products.length > 0 ? "flex" : "none";
+    fav.textContent = fav_products.length;
+    item_num[1].textContent = fav_products.length > 0 ? fav_products.length : "No";
+
+    if (fav_products.length === 0) {
+        fav_pro_con.innerHTML = `
+            <h4>
+                <i class="fa-solid fa-cart-arrow-down fa-bounce"></i>
+            </h4>
+        `;
+    }
+
+    if (fav_show_icon.classList.contains("fa-fade") || fav_products.length === 0) {
+        fav.style.display = "none";
+    } else {
+        fav.style.display = "flex";
+    }
+};
+
+const main = document.getElementsByTagName("main")[0];
+// Add event listeners to all elements with the class 'product_box'
+
+main.addEventListener("click", (e) => {
+
+    const product_box = e.target.closest(".product_box");
+
+    // Get the product information from the closest '.product_box' element
+
+    if(e.target.classList.contains("buy_btn"))
+        {
+            const pro_price = product_box.querySelector(".pro_price").textContent;
+            check_form_show(check_form_container,pro_price);
+        }
+
+    // If the clicked element has the class 'cart_btn' or 'cart_chose'
+    if (e.target.classList.contains("cart_btn") || e.target.classList.contains("cart_chose")) {
+        const pro_info = e.target.closest(".product_box").querySelector(".pro_info").textContent;
+        const w_do = "cart";
+        cart_show(pro_info, w_do);
+    }
+
+    // If the clicked element has the class 'fa-heart'
+    if (e.target.classList.contains("fa-heart")) {
+        const pro_box = e.target.closest(".product_box");
+        const heart = pro_box.querySelector(".fa-heart");
+        const love_btn = pro_box.querySelector(".love_btn");
+        const save = pro_box.querySelector(".save");
+        const fav = document.querySelector(".fav");
+        const pro_info = e.target.closest(".product_box").querySelector(".pro_info").textContent;
+
+        const fav_filter = products.filter(e => e.info === pro_info)[0];
+
+        // Toggle the heart's 'click' class and its styles
+        if (heart.classList.contains("click")) {
+            heart.classList.remove("click");
+            heart.style.color = "";
+            love_btn.style.opacity = .5;
+            save.style.background = "";
+
+            fav_products.splice(fav_products.indexOf(fav_filter), 1);
+        } else {
+            heart.classList.add("click");
+            heart.style.color = "red";
+            love_btn.style.opacity = 1;
+            save.style.background = "#38B5FA";
+            fav_products.push(fav_filter);
+        }
+
+        // Update the favorite products display
+        fav_show(fav_pro_con, fav_products);
+
+    }
+    
+    const pro_left = document.querySelector(".pro_left");
+
+    if(pro_left)
+        {
+            
+
+            pro_left.addEventListener("click", () => {
+                const fav_pro = document.querySelectorAll(".fav_pro");
+                fav_pro.forEach((e) => {
+                    const fav_no = e.attributes.no.value;
+                    const product_con = document.querySelector(`[num = "${fav_no}"]`);
+                            
+                    if(product_con)
+                        {
+                            const heart = product_con.querySelector(".fa-heart");
+
+                            heart.classList.add("click");
+                            heart.style.color = "red";
+                            product_con.querySelector(".love_btn").style.opacity = 1;
+                            product_con.querySelector(".save").style.background = "#38B5FA";
+
+                        }
+                })
+            })
+        }
+
+    if(product_box.attributes.num)
+        {
+            product_box.addEventListener("click", () => {
+        
+                const pro_in = products.filter((e) => {return product_box.attributes.num.value == e.id});
+                localStorage.setItem("product_box",JSON.stringify(pro_in));
+            
+                const a_link = document.querySelector(".a_link");
+                a_link.click();
+        
+                const currentPageLink = window.location.href;
+                localStorage.setItem("currentPage",currentPageLink);
+            });
+        }
+
+});
+
+
+// Add event listeners to the cart container
+cart_container.addEventListener("click", (e) => {
+    const cart_pro = document.querySelectorAll(".cart_pro");
+    const cart_pro_info = document.querySelectorAll(".cart_pro_info");
+
+    // Increase product quantity
+    if (e.target.classList.contains("q_pu")) {
+        const pro_info = e.target.closest(".cart_info").querySelector(".cart_pro_info").textContent;
+        const w_do = "pu";
+        cart_show(pro_info, w_do);
+    }
+
+    // Decrease product quantity
+    if (e.target.classList.contains("q_min")) {
+        const pro_info = e.target.closest(".cart_info").querySelector(".cart_pro_info").textContent;
+        const w_do = "mi";
+        cart_show(pro_info, w_do);
+    }
+
+    // Remove product from cart
+    if (e.target.classList.contains("remove")) {
+        const pro_info = e.target.closest(".cart_info").querySelector(".cart_pro_info").textContent;
+        const w_do = "remove";
+        cart_show(pro_info, w_do);
+    }
+
+    // Display checkout form
+    if (e.target.classList.contains("check_btn")) {
+       check_form_show(check_form_container,sum_price);
     }
 });
 
@@ -609,3 +624,4 @@ fav_pro_con.addEventListener("click", (e) => {
 });
 
 export {cart_products,fav_products};
+

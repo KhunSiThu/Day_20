@@ -5,25 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Computer</title>
     <link rel="stylesheet" href="/CSS/home.css">
+    <link rel="stylesheet" href="/CSS/ProDetail.css">
     <link rel="stylesheet" href="/CSS/responsive.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
-<body class="home ads">
+<body>
     <a class="a_link" href="/HTML/ProDetail.html" hidden></a>
-    <div class="up_profile ">
-        <div>
-            <span>Hello! <h1 class="user_name"></h1> </span>
-            <i class="fa-solid fa-xmark fa-beat up_remove"></i>
-            <article>
-                <img src="/image/p.jpg" alt="" id="profile_img">
-            </article>
-
-            <label for="input_file"><p class="up_text">Update Profile</p></label>
-            <input type="file" name="" id="input_file" accept="image/jpeg, image/jpg, image/png">
-            <button class="up_confirm">Confirm</button>
-
-        </div>
-    </div>
     <header class="bg_change">   
         <div class="hr1">
             <h1>Computer</h1>
@@ -106,74 +93,12 @@
         </div>
     </header>
     
-    <main class="main">
-        <section class="home_container">
-            <div class="ads_img_con">
-                <div class="ads_left">
-                    <img  src="/image/ads0.jpg" alt="">
-                </div>
-                <div class="ads_right">
-                    <img class="ads_img" src="/image/ads1.jpg" alt="">
-                    <div class="ads_imgs">
-                        <img class="ads_sm_img" src="/image/ads1.jpg" alt="">
-                        <img class="ads_sm_img" src="/image/ads2.jpg" alt="">
-                        <img class="ads_sm_img" src="/image/ads3.jpg" alt="">
-                        <img class="ads_sm_img" src="/image/ads4.jpg" alt="">
-                        <img class="ads_sm_img" src="/image/ads5.jpg" alt="">
-                    </div>
-                </div>
-            </div>
+    <main>
 
-            <div class="product_types">
-                <a class="b3 bg_change col_black" href="pc.html">
-                    <img src="/image/computer-case.png" alt="">
-                    <span>Ready 2 run Gaming PCs</span>
-                </a>
-                <a class="b3 bg_change col_black" href="laptops.html">
-                    <img src="/image/laptop.png" alt="">
-                    <span>Laptops</span>
-                </a>
-                <a class="b3 bg_change" href="monitors.html">
-                    <img src="/image/motherboard.png" alt="">
-                    <span>Motherboard</span>
-                </a>
-                <a class="b3 bg_change" href="monitors.html">
-                    <img src="/image/monitor.png" alt="">
-                    <span>Monitor</span>
-                </a>
-                <a class="b3 bg_change" href="other.html">
-                    <img src="/image/usb-cable.png" alt="">
-                    <span>Other</span>
-                </a>
-            </div>
+        <button class="back_link_btn"><i class="fa-solid fa-arrow-left-long fa-fade"></i><a class="back_link" href=""></a></button>
 
-            <div class="hot_product_container">
-                <h2 class="color_change">WHAT'S HOT RIGHT NOW</h2>
-                <div class="see_con">
-                    <button id="see" class="hot_see_btn all color_change">See All</button>
-                </div>
-                <div class="hot_scroll">
-                    <div class="hot_product hot_flex less">
-                        <!-- Hot products will be displayed here -->
-                    </div>
-                </div>
-                <button class="next_btn"><i class="fa-solid fa-chevron-right"></i></button>
-                <button class="back_btn dis_none"><i class="fa-solid fa-chevron-left"></i></button>
-            </div>
-
-            <div class="feat_product_container">
-                <h2 class="color_change">FEATURED PRODUCTS</h2>
-                <div class="see_con">
-                    <button id="see" class="feat_see_btn a color_change">See All</button>
-                </div>
-                <div class="feat_scroll">
-                    <div class="feat_product feat_flex less">
-                        <!-- Featured products will be displayed here -->
-                    </div>
-                </div>
-                <button class="feat_next"><i class="fa-solid fa-chevron-right"></i></button>
-                <button class="feat_back dis_none"><i class="fa-solid fa-chevron-left"></i></button>
-            </div>
+        <section class="s1 product_box">
+           
         </section>
     </main>
 
@@ -181,7 +106,8 @@
         <!-- Checkout form will be inserted here -->
     </div>
 
-    <script type="module" src="/JS/inputUserImg.js"></script>
+    <script src="/JS/ProDetail.js"></script>
     <script type="module" src="/JS/main.js"></script>
+    
 </body>
 </html>

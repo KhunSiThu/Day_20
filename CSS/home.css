@@ -21,6 +21,7 @@ body
     color: #151515;
     background-color: #F5F5F5;
     transition: 1s;
+    position: relative;
 
     .b3
     {
@@ -28,6 +29,125 @@ body
         box-shadow: 2px 2px 8px #00000010;
         border-radius: 5px;
     }
+}
+
+.up_profile 
+{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    backdrop-filter: blur(10px);
+    z-index: 300;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    div 
+    {
+        width: 500px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: rgba(0, 0, 0, 0.938);
+        z-index: 100;
+        padding: 20px;
+        position: relative;
+        border-radius: 3px;
+
+        span 
+        {
+            display: flex;
+            color: white;
+            align-items: center;
+            height: 80px;
+        }
+
+        h1 
+        {
+            color: rgb(255, 72, 0);
+            margin-left: 10px;
+        }
+
+        .up_remove 
+        {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            color: #38B5FA;
+            font-size: 20px;
+            transition: .5s;
+        }
+
+        .up_remove:hover 
+        {
+            color: red;
+        }
+        input 
+        {
+            display: none;
+        }
+
+        label
+        {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            top: 100px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            p 
+            {
+                margin-top: 65%;
+                font-size: 20px;
+                color: #388cfa;
+            }
+        }
+
+        button 
+        {
+            background-color: #38B5FA;
+            opacity: .5;
+            transition: .5s;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 3px;
+            margin-top: 20px;
+            font-size: 20px;
+        }
+
+        button:hover 
+        {
+            opacity: 1;
+        }
+    }
+
+    article 
+    {
+        width: 300px;
+        height: 300px;
+        background-color: white;
+        border-radius: 50%;
+        overflow: hidden;
+        position: relative;
+    }
+    
+    #profile_img 
+    {
+        width: 100%;
+    }
+    
 }
 
 /* Header */
@@ -104,7 +224,7 @@ header
     
     .hr3 
     {
-        width: 15%;
+        width: 20%;
         display: flex;
         justify-content: space-between;
     }
@@ -125,6 +245,17 @@ header
         background-color: #ff4603;
     }
 
+    .user_btn 
+    {
+        border-radius: 50%;
+        overflow: hidden;
+
+        img 
+        {
+            width: 100%;
+        }
+    }
+
     .quantities,.fav
     {
         display: none;
@@ -133,7 +264,7 @@ header
         width: 20px;
         height: 20px;
         top: 8px;
-        right: 13.5%;
+        right: 13.2%;
         color: white;
         font-size: 10px;
         border-radius: 50%;
@@ -148,7 +279,7 @@ header
     .fav 
     {
         top: 8px;
-        right: 8.1%;
+        right: 7.8%;
     }
 
     .search_result 
@@ -156,14 +287,14 @@ header
         position: absolute;
         top: 73px;
         width: 47%;
-        margin: 0 23.54%;
+        margin: 0 21.2%;
         background-color: #20202041;
         overflow-y: auto;
         z-index: 200;
         max-height: 80vh;
         scrollbar-width:none;
 
-        a
+        div
         {
             z-index: 200;
             width: 98%;
@@ -604,7 +735,7 @@ section
         text-align: center;
         padding: 10px;
         cursor: pointer;
-        
+        background-color: white;
         transition: .5s;
         text-decoration: none;
         color: #151515;
@@ -1331,7 +1462,8 @@ h3
 {
     width: 100vw;
     height: 100vh;
-    background-color: #000000d3;
+
+    backdrop-filter: blur(3px);
 
     position: fixed;
     top: 0;
@@ -1591,6 +1723,8 @@ h3
     color: white;
     transition: all 1s;
 
+
+
     .search_tag 
     {
         background-color: #202020;
@@ -1621,6 +1755,8 @@ h3
     {
         color: black;
     }
+
+    
 
     .home_container .product_box
     {
@@ -1657,6 +1793,11 @@ h3
         {
             opacity: 1;
         }
+    }
+
+    .product_types a 
+    {
+        background-color: black;
     }
 
 
@@ -1711,6 +1852,46 @@ h3
        border: none;
        border-radius: 3px;
        overflow: hidden;
+    }
+
+    .user_btn 
+    {
+        border-radius: 50%;
+        overflow: hidden;
+
+        img 
+        {
+            width: 100%;
+        }
+    }
+
+    /* Product Detail */
+
+    .s1 
+    {
+        background-color: black;
+
+        .d_left div img
+        {
+            border-color: rgba(255, 255, 255, 0.452);
+        }
+        .d_right
+        {
+            em 
+            {
+                color: white;
+            }
+
+            .com_label 
+            {
+                background-color: black;
+            }
+
+            textarea 
+            {
+                color: white;
+            }
+        }
     }
 }
 

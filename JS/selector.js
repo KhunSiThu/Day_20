@@ -1,5 +1,9 @@
 const body = document.getElementsByTagName("body")[0];
 
+//input user image
+const profile_img = document.querySelectorAll("#profile_img");
+const user_name = document.querySelector(".user_name");
+
 //header 
 const search_tag = document.querySelector(".search_tag");
 const search_result = document.querySelector(".search_result");
@@ -74,5 +78,5 @@ export
     hot_scroll,feat_scroll,pc_product,li1_btn,li2_btn,li3_btn,laptops_product,motherboards_product,monitors_product,
     other_product,search_tag,search_result,menu_btn,menu_con,menu_bar,dark_btn,circle_btn,body,dark_icon,dark_text,
     brand_btn,all_btn,brand_icon,brands,pu_btn,mi_btn,b_price,a_price,go_btn,quantities,h_love_btn,fav,item_num,
-    check_form_container,ads_img,ads_sm_img,cart_container,fav_container
+    check_form_container,ads_img,ads_sm_img,cart_container,fav_container,user_name,profile_img
 }

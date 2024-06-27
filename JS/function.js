@@ -25,14 +25,30 @@ const search_result_show = () => {
             const search_filter = products.filter(e => e.info.toLowerCase().includes(search_value));
             search_result.innerHTML = ""
             search_filter.forEach((e) => {
-                search_result.innerHTML += `<a>
+                search_result.innerHTML += `<div class = "sea_pro"  num = "${e.id}">
+                                                    
                                                     <img src="${e.img}.png" alt="">
                                                     <p class="col_black">${e.info}</p>
-                                            </a>`
+                                            </div>`
+
+
             })
         } else {
             search_result.innerHTML = ""
         }
+
+        const sea_pro = document.querySelectorAll(".sea_pro");
+        sea_pro.forEach((e) => {
+            e.addEventListener("click", () => { 
+
+                const pro_in = products.filter((el) => {return e.attributes.num.value == el.id});
+                localStorage.setItem("product_box",JSON.stringify(pro_in));
+                
+                const a_link = document.querySelector(".a_link");
+                a_link.click();
+            })
+        })
+      
 }
 
 
@@ -119,7 +135,7 @@ const product_show = (e1,e2) => {
                                 <div class = "info_buy">
                                     <p class = "pro_info" >${e2.info}</p>
                                     <div class="buy">
-                                        <span>Price : <em>$${e2.price}</em></span>
+                                        <span>Price : $<em class = "pro_price">${e2.price}</em></span>
                                         <button id="buy_now" class="b3 buy_btn">Buy Now</button>
                                         <button class="cart_btn b3"><i class="fa-solid fa-cart-shopping cart_chose"></i></button>
                                         
